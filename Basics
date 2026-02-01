@@ -1,0 +1,63 @@
+Time–Frequency Analysis of Non-Stationary Signals using STFT and Wavelet Transform
+
+1. Introduction
+Signal Processing deals with the analysis, modification, and interpretation of signals. A signal is any physical quantity that varies with time, space, or another independent variable. Examples include audio signals, ECG signals, vibration signals, and communication signals.
+
+This project focuses on analyzing non-stationary signals using advanced time–frequency techniques.
+
+2. Stationary vs Non-Stationary Signals
+A stationary signal has frequency content that does not change with time. A non-stationary signal has frequency components that vary over time.
+
+Most real-world signals are non-stationary, which makes classical Fourier analysis insufficient.
+
+3. Fourier Transform (FT)
+The Fourier Transform converts a time-domain signal into its frequency-domain representation. However, it provides no information about when a particular frequency occurs.
+
+Mathematically:
+X(f) = ∫ x(t) e^(-j2πft) dt
+
+This assumption of stationarity limits its usefulness for real-world signals.
+
+4. Short-Time Fourier Transform (STFT)
+STFT solves the time-localization problem by applying the Fourier Transform over short, sliding windows.
+
+STFT equation:
+STFT(t,f) = ∫ x(τ) w(τ−t) e^(-j2πfτ) dτ
+
+STFT introduces a tradeoff between time and frequency resolution due to fixed window size.
+
+5. Time–Frequency Resolution Tradeoff
+A short window gives good time resolution but poor frequency resolution.
+A long window gives good frequency resolution but poor time resolution.
+
+This limitation is governed by the Heisenberg Uncertainty Principle.
+
+6. Wavelet Transform
+The Wavelet Transform uses variable-sized windows.
+High-frequency components use short windows, while low-frequency components use long windows.
+
+This property is known as multi-resolution analysis.
+
+7. Continuous Wavelet Transform (CWT)
+CWT analyzes signals at different scales using a mother wavelet.
+
+CWT equation:
+CWT(a,b) = ∫ x(t) ψ*((t−b)/a) dt
+
+Wavelets provide better transient detection compared to STFT.
+
+8. Comparison: STFT vs Wavelet Transform
+STFT uses fixed resolution and struggles with signals containing both fast and slow variations.
+Wavelets adapt resolution automatically and are better suited for non-stationary signals.
+
+9. MATLAB Implementation Overview
+The project is implemented in MATLAB using built-in functions such as fft, spectrogram, and cwt.
+Signals are generated synthetically to clearly demonstrate theoretical concepts.
+
+10. Applications
+Speech processing
+Biomedical signal analysis (ECG, EEG)
+Vibration and fault detection
+Radar and communication systems
+
+
